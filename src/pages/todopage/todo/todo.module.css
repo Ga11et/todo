@@ -1,0 +1,11 @@
+.todoContainer{
+    height: 200px;
+    min-width: 400px;
+    border: 1px solid var(--dark);
+    border-radius: 30px;
+    padding: 30px;
+    color: var(--black);
+}
+.title{
+    font-size: 2em;
+}

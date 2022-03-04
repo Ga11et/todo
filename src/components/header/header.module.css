@@ -1,0 +1,31 @@
+.header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    background-color: var(--secondary);
+    border-bottom: 1px solid var(--dark);
+}
+.logo{
+    color: var(--dark);
+    font-size: 3em;
+}
+.nav{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5em;
+}
+.nav > a{
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav > a:hover{
+    text-decoration: underline;
+}

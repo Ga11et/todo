@@ -1,0 +1,23 @@
+@font-face{
+    font-family: 'Montserrat';
+    font-weight: 400;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+}
+@font-face{
+    font-family: 'Montserrat';
+    font-weight: 500;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+}
+:root{
+    --main: #FF5335;
+    --secondary: #B29C85;
+    --third: #306E73;
+    --dark: #3B424C;
+    --black: #1D181F;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+*, *:after, *:before{
+    margin: 0;
+    box-sizing: border-box;
+}

@@ -1,0 +1,43 @@
+.mainPage{
+    padding: 100px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--secondary);
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.heading{
+    font-size: 6em;
+    font-weight: 500;
+    color: var(--dark);
+    padding-bottom: 50px;
+}
+.paragraph{
+    font-weight: 400;
+    color: var(--dark);
+    padding-bottom: 50px;
+}
+.link{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--main);
+    border-radius: 10px;
+    color: var(--third);
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: 500;
+}
+.forImage{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+.image{
+    display: block;
+    width: 400px;
+}
