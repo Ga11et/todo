@@ -4,7 +4,7 @@ import { actionsTypes, todoType } from "../models/models"
 const initialState = {
     todos: [] as todoType[],
     isLoading: [] as number[],
-
+    isDeleting: [] as number[],
 }
 
 type initialStateType = typeof initialState
@@ -34,13 +34,19 @@ export const todoReducer = (state = initialState, action: actionsTypes<typeof to
         case 'ADD_TODO':
             return {
                 ...state,
-                todos: [...state.todos, action.todo]
+                todos: [action.todo, ...state.todos]
             }
         case 'CHANGE_LOADING':
             return {
                 ...state,
                 isLoading: action.action ? [...state.isLoading, action.id]
                     : [...state.isLoading.filter(el => el !== action.id)]
+            }
+        case 'CHANGE_DELETING':
+            return {
+                ...state,
+                isDeleting: action.action ? [...state.isDeleting, action.id]
+                    : [...state.isDeleting.filter(el => el !== action.id)]
             }
         default:
             return state
@@ -53,6 +59,7 @@ export const todoRedActions = {
     updateTodo: (todo: todoType) => ({ type: 'UPDATE_TODO', todo } as const),
     addTodo: (todo: todoType) => ({ type: 'ADD_TODO', todo } as const),
     changeLoading: (action: boolean, id: number) => ({ type: 'CHANGE_LOADING', action, id } as const),
+    changeDeleting: (action: boolean, id: number) => ({ type: 'CHANGE_DELETING', action, id } as const),
 }
 
 type dispatchType = (action: actionsTypes<typeof todoRedActions>) => void
@@ -60,12 +67,14 @@ type dispatchType = (action: actionsTypes<typeof todoRedActions>) => void
 export const todoRedThunks = {
     getTodos: () => async (dispatch: dispatchType) => {
         const response = await API.getTodos()
-        dispatch(todoRedActions.getTodos(response))
+        dispatch(todoRedActions.getTodos(response.sort((a,b) => b.id - a.id)))
     },
     deleteTodo: (id: number) => async (dispatch: dispatchType) => {
+        dispatch(todoRedActions.changeDeleting(true, id))
         const response = await API.deleteTodo(id)
         if (response === 200) {
             dispatch(todoRedActions.deleteTodo(id))
+            dispatch(todoRedActions.changeDeleting(false, id))
         }
     },
     updateTodo: (todo: todoType) => async (dispatch: dispatchType) => {

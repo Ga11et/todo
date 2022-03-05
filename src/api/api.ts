@@ -18,11 +18,11 @@ export const API = {
             .then( data => data.status)
     },
     updateTodo: (todo: todoType) => {
-        return instance.put<any>(`todos/${todo.id}`, {todo})
+        return instance.put<{todo: todoType}>(`todos/${todo.id}`, {todo})
             .then( data => data)
     },
     addTodo: (todo: todoType) => {
-        return instance.post<any>(`todos`, {todo})
+        return instance.post<{todo: todoType}>(`todos`, {todo})
             .then( data => data)
     },
 }

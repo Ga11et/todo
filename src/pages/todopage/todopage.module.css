@@ -27,6 +27,9 @@
 .button:hover{
     cursor: pointer;
 }
+.button:disabled{
+    opacity: 0.5;
+}
 .todos{
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -15,8 +15,7 @@ export const Todo: FC<TodoPropsType> = ({ todo }) => {
     const { completed, id, title, userId } = todo
 
     const dispatch = useDispatch()
-    const { isLoading } = useAppSelector(state => state.todoReducer)
-
+    const { isLoading, isDeleting } = useAppSelector(state => state.todoReducer)
     const updateTodoHandler = () => {
         let title = prompt('Введите новый')
         if (title === null) title = ' '
@@ -29,9 +28,11 @@ export const Todo: FC<TodoPropsType> = ({ todo }) => {
     return <>
         <div className={css.todoContainer}>
             <div className={css.content}>
+                {id}
                 <div className={css.title}>{title}</div>
                 <div className={css.buttons}>
                     <button className={css.button}
+                        disabled={isDeleting.some( el => el === id)}
                         onClick={() => dispatch(todoRedThunks.deleteTodo(id))}
                     >
                         Удалить

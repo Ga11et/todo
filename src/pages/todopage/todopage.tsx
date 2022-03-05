@@ -32,7 +32,7 @@ export const TodoPage: FC<TodoPagePropsType> = ({ }) => {
                 >Создать Todo</button>
             </div>
             <div className={css.todos}>
-                {todos.map(el => el.id >= 180 && <Todo key={el.id} todo={el} />)}
+                {todos.map(el => <Todo key={el.id} todo={el} />)}
 
             </div>
         </main>
