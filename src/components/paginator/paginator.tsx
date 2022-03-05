@@ -24,6 +24,7 @@ export const PaginatorScript: React.FC<propsType> = (props) => {
         .map(el => <div key={el}
             tabIndex={0}
             onClick={() => props.onNumberPageClick(el)}
+            onKeyPress={() => props.onNumberPageClick(el)}
             className={`${css.numberPage} ${props.activePage === el ? css.active : css.noactive}`}>{el}</div>)
 
     return (
