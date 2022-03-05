@@ -6,26 +6,33 @@ import { Todo } from "./todo/todo"
 import css from './todopage.module.css'
 
 type TodoPagePropsType = {
-    
+
 }
-export const TodoPage: FC<TodoPagePropsType> = ({  }) => {
+export const TodoPage: FC<TodoPagePropsType> = ({ }) => {
 
     const dispatch = useDispatch()
     const { todos } = useAppSelector(state => state.todoReducer)
+
+    const createTodoHandler = () => {
+        let title = prompt('Введите Todo')
+        if (title === null) title = ''
+        dispatch(todoRedThunks.addTodo({ title, userId: 1, completed: false, id: todos.length + 1 }))
+    }
 
     useEffect(() => {
         dispatch(todoRedThunks.getTodos())
     }, [])
 
-    // useEffect(() => {
-    //     dispatch(todoRedThunks.getWeather())
-    // }, [todos])
-
     return <>
         <main className={css.todoPage}>
-            <h1 className={css.heading}>Todos:</h1>
+            <div className={css.top}>
+                <h1 className={css.heading}>Todos:</h1>
+                <button className={css.button}
+                    onClick={createTodoHandler}
+                >Создать Todo</button>
+            </div>
             <div className={css.todos}>
-                {todos.map( el => <Todo key={el.id} todo={el} />)}
+                {todos.map(el => el.id >= 180 && <Todo key={el.id} todo={el} />)}
 
             </div>
         </main>

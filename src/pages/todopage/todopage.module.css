@@ -1,6 +1,31 @@
 .todoPage{
     padding: 100px 50px;
     background-color: var(--secondary);
+    
+}
+.top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+    justify-content: space-between;
+}
+.heading{
+    color: var(--dark);
+    font-size: 3em;
+    font-weight: 500;
+}
+.button{
+    border: 1px solid var(--dark);
+    border-radius: 10px;
+    padding: 10px 30px;
+    background-color: var(--third);
+    color: var(--black);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.button:hover{
+    cursor: pointer;
 }
 .todos{
     display: grid;

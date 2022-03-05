@@ -21,4 +21,8 @@ export const API = {
         return instance.put<any>(`todos/${todo.id}`, {todo})
             .then( data => data)
     },
+    addTodo: (todo: todoType) => {
+        return instance.post<any>(`todos`, {todo})
+            .then( data => data)
+    },
 }

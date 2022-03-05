@@ -4,6 +4,6 @@ export type actionsTypes<T extends {[key: string]: (...args: Array<any>) => any}
 export type todoType = {
     id: number
     title: string
-    completed: string
+    completed: boolean
     userId: number
 }
