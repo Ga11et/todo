@@ -5,6 +5,7 @@ const initialState = {
     todos: [] as todoType[],
     isLoading: [] as number[],
     isDeleting: [] as number[],
+    activePage: 1
 }
 
 type initialStateType = typeof initialState
@@ -48,6 +49,11 @@ export const todoReducer = (state = initialState, action: actionsTypes<typeof to
                 isDeleting: action.action ? [...state.isDeleting, action.id]
                     : [...state.isDeleting.filter(el => el !== action.id)]
             }
+        case 'CHANGE_ACTIVE_PAGE':
+            return {
+                ...state,
+                activePage: action.newActivePage
+            }
         default:
             return state
     }
@@ -60,6 +66,7 @@ export const todoRedActions = {
     addTodo: (todo: todoType) => ({ type: 'ADD_TODO', todo } as const),
     changeLoading: (action: boolean, id: number) => ({ type: 'CHANGE_LOADING', action, id } as const),
     changeDeleting: (action: boolean, id: number) => ({ type: 'CHANGE_DELETING', action, id } as const),
+    changeActivePage: (newActivePage: number) => ({ type: 'CHANGE_ACTIVE_PAGE', newActivePage } as const),
 }
 
 type dispatchType = (action: actionsTypes<typeof todoRedActions>) => void

@@ -17,7 +17,7 @@ export const App: FC<AppPropsType> = ({  }) => {
     <Routes>
       <Route path='/main' element={<MainPage />} />
       <Route path='/todos' element={<TodoPage />} />
-      <Route path='*' element={<div>404</div>} />
+      <Route path='*' element={<MainPage />} />
     </Routes>
     <Footer />
   </Provider>
