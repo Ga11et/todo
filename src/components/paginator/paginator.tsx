@@ -22,6 +22,7 @@ export const PaginatorScript: React.FC<propsType> = (props) => {
     const numbersJsx = numbers
         .filter(el => el >= firstPage && el <= lastPage)
         .map(el => <div key={el}
+            tabIndex={0}
             onClick={() => props.onNumberPageClick(el)}
             className={`${css.numberPage} ${props.activePage === el ? css.active : css.noactive}`}>{el}</div>)
 
