@@ -1,13 +1,4 @@
-@font-face{
-    font-family: 'Montserrat';
-    font-weight: 400;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-}
-@font-face{
-    font-family: 'Montserrat';
-    font-weight: 500;
-    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-}
+
 :root{
     --main: #FF5335;
     --secondary: #B29C85;
